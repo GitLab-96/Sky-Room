@@ -26,6 +26,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageView background_profile_view;
     private TextView name_profile;
     private Button add_friend,decline_friend_request;
+
     private FirebaseAuth mAuth;
     private String senderUserId;
     private String currentState = "new";

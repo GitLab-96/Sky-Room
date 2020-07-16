@@ -48,7 +48,9 @@
             android:textColor="#ffffff"
             android:text="Accept Friend Request"
             android:textAllCaps="false"
-            android:textSize="13dp"/>
+            android:textSize="13dp"
+            android:visibility="gone"
+            />
 
         <Button
             android:layout_width="match_parent"
@@ -64,7 +66,8 @@
             android:textColor="#ffffff"
             android:text="Cancel Friend Request"
             android:textAllCaps="false"
-            android:textSize="13dp"/>
+            android:textSize="13dp"
+            android:visibility="gone"/>
 
     </RelativeLayout>
 
