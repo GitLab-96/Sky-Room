@@ -144,7 +144,7 @@ public class FindPeopleActivity extends AppCompatActivity {
             super(itemView);
 
             userNameTxt = itemView.findViewById(R.id.name_contact);
-            videoCallBtn = itemView.findViewById(R.id.callbtn);
+            videoCallBtn = itemView.findViewById(R.id.call_btn);
             profileImageView = itemView.findViewById(R.id.image_contact);
             cardView = itemView.findViewById(R.id.card_view1);
 

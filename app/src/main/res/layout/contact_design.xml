@@ -38,7 +38,7 @@
         <Button
             android:layout_width="90dp"
             android:layout_height="43dp"
-            android:id="@+id/callbtn"
+            android:id="@+id/call_btn"
             android:layout_below="@id/name_contact"
             android:layout_marginTop="8dp"
             android:layout_marginLeft="65dp"

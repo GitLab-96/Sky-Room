@@ -68,6 +68,7 @@ public class NotificationsActivity extends AppCompatActivity {
                 holder.cancelBtn.setVisibility(View.VISIBLE);
 
                 final String listUserId = getRef(i).getKey();
+
                 DatabaseReference requestTypRef = getRef(i).child("request_type").getRef();
 
                 requestTypRef.addValueEventListener(new ValueEventListener() {
