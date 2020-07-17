@@ -154,7 +154,6 @@ public class RegistrationActivity extends AppCompatActivity {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
-
                             loadingBar.dismiss();
                             Toast.makeText(RegistrationActivity.this, "Congratulations. you are logged in successfully..", Toast.LENGTH_SHORT).show();
                             sendUserToMainActivity();
