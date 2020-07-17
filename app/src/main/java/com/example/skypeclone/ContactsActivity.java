@@ -37,6 +37,7 @@ public class ContactsActivity extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private String currentUserId;
     private String userName="",profileImage="";
+    private String calledBy="";
 
 
     @Override
@@ -107,6 +108,7 @@ public class ContactsActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
+        checkForReceivingCall();
         validateUser();
         
         FirebaseRecyclerOptions<Contacts>options
@@ -137,9 +139,9 @@ public class ContactsActivity extends AppCompatActivity {
                             public void onClick(View v) {
 
 
-                                Intent callinfIntent = new Intent(ContactsActivity.this,CallingActivity.class);
-                                callinfIntent.putExtra("visit_user_id",listUserId);
-                                startActivity(callinfIntent);
+                                Intent callingIntent = new Intent(ContactsActivity.this,CallingActivity.class);
+                                callingIntent.putExtra("visit_user_id",listUserId);
+                                startActivity(callingIntent);
 
                             }
                         });
@@ -167,6 +169,7 @@ public class ContactsActivity extends AppCompatActivity {
         myContactsList.setAdapter(firebaseRecyclerAdapter);
         firebaseRecyclerAdapter.startListening();
     }
+
 
 
 
@@ -209,6 +212,35 @@ public class ContactsActivity extends AppCompatActivity {
 
             }
         });
+
+    }
+    private void checkForReceivingCall() {
+
+
+        userRef.child(currentUserId)
+                .child("Ringing")
+                .addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+
+                        if (dataSnapshot.hasChild("ringing"))
+                        {
+                            calledBy = dataSnapshot.child("ringing").getValue().toString();
+
+                            Intent callingIntent = new Intent(ContactsActivity.this,CallingActivity.class);
+                            callingIntent.putExtra("visit_user_id",calledBy);
+                            startActivity(callingIntent);
+
+
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+                    }
+                });
+
 
     }
 
